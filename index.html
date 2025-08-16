@@ -1,0 +1,2118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divoom Ditoo Pro - Pixel Art Bluetooth Speaker</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Josefin Sans', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        
+        
+        .product-title {
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+        
+        .product-subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-top: 0;
+            letter-spacing: 2px;
+        }
+        
+        .top-banner {
+            background: linear-gradient(90deg, #ff4c8b, #ff6b9c);
+            color: white;
+            text-align: center;
+            padding: 12px 0;
+            font-size: 16px;
+            font-weight: 500;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .top-banner strong {
+            font-weight: 600;
+        }
+        
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .logo {
+            font-weight: 600;
+            font-size: 28px;
+            color: #ff4c8b;
+            text-decoration: none;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #ff4c8b;
+        }
+        
+        .icons {
+            display: flex;
+            gap: 20px;
+            position: relative;
+        }
+        
+        .icons i {
+            font-size: 20px;
+            color: #555;
+            cursor: pointer;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #ff4c8b;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: flex;
+            gap: 40px;
+            position: relative;
+            z-index: 5;
+        }
+        
+        .product-images {
+            flex: 1;
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .main-image {
+            width: 100%;
+            border-radius: 10px;
+            cursor: zoom-in;
+            transition: transform 0.3s;
+            margin-bottom: 20px;
+        }
+        
+        .main-image:hover {
+            transform: scale(1.02);
+        }
+        
+        .carousel {
+            display: flex;
+            gap: 12px;
+            margin-top: 10px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+        }
+        
+        .carousel img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+        
+        .carousel img.active, .carousel img:hover {
+            border-color: #ff4c8b;
+            transform: translateY(-5px);
+        }
+        
+        .delivery-info {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            display: flex;
+            gap: 25px;
+            font-size: 15px;
+            color: #555;
+        }
+        
+        .delivery-info span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .product-details {
+            flex: 1;
+        }
+        
+        .product-title {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #222;
+        }
+        
+        .product-description {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+        
+        .product-price {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .current-price {
+            font-size: 32px;
+            font-weight: 600;
+            color: #ff4c8b;
+        }
+        
+        .original-price {
+            font-size: 20px;
+            color: #999;
+            text-decoration: line-through;
+        }
+        
+        .stock-info {
+            background: #fff5f7;
+            padding: 12px 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .stock-info i {
+            color: #ff4c8b;
+            font-size: 20px;
+        }
+        
+        .stock-text {
+            font-size: 18px;
+            color: #e6376d;
+            font-weight: 500;
+        }
+        
+        .stock-text del {
+            color: #999;
+            margin-right: 8px;
+        }
+        
+        .color-options {
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .colors {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .color-option {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid #eee;
+            position: relative;
+        }
+        
+        .color-option.active {
+            border-color: #ff4c8b;
+        }
+        
+        .color-option.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            background: #ff4c8b;
+            border-radius: 50%;
+        }
+        
+        .quantity-section {
+            margin-bottom: 25px;
+        }
+        
+        .quantity-selector {
+            display: flex;
+            width: 150px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .quantity-btn {
+            width: 40px;
+            height: 45px;
+            background: #f5f5f5;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .quantity-btn:hover {
+            background: #eee;
+        }
+        
+        .quantity-input {
+            width: 70px;
+            height: 45px;
+            text-align: center;
+            border: none;
+            border-left: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            font-size: 18px;
+            font-weight: 500;
+        }
+        
+        .payment-options {
+            margin-bottom: 25px;
+        }
+        
+        .payment-method {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            padding: 12px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .payment-method:hover, .payment-method.selected {
+            border-color: #ff4c8b;
+            background: #fff5f7;
+        }
+        
+        .payment-method input {
+            margin-right: 8px;
+        }
+        
+        .price-breakdown {
+            background: #fff5f7;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            display: none;
+        }
+        
+        .price-breakdown div {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        
+        .price-breakdown div:last-child {
+            font-weight: 600;
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px dashed #ffc1d3;
+        }
+        
+        .product-details-breakdown {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .coupon-section {
+            margin-bottom: 30px;
+        }
+        
+        .coupon-container {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .coupon-input {
+            flex: 1;
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        
+        .apply-btn {
+            padding: 0 25px;
+            background: #333;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+        
+        .apply-btn:hover {
+            background: #555;
+        }
+        
+        .coupon-notice {
+            font-size: 14px;
+            color: #2e7d32;
+            background: #e8f5e9;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 10px;
+            display: none;
+            font-weight: 500;
+            border: 1px solid #c8e6c9;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .cart-btn {
+            flex: 1;
+            background: #ff4c8b;
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: background 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .cart-btn:hover {
+            background: #e6376d;
+        }
+        
+        .buy-btn {
+            flex: 1;
+            background: #333;
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+        
+        .buy-btn:hover {
+            background: #555;
+        }
+        
+        /* CODE 2 & 3: Carousel Styles with Images */
+        .features-carousel {
+            position: relative;
+            max-width: 100%;
+            margin: 60px auto;
+            overflow: hidden;
+            background: white;
+        }
+        
+        .carousel-container {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .carousel-slide {
+            min-width: 100%;
+            padding: 0;
+            text-align: center;
+        }
+        
+        .carousel-image {
+            width: 100%;
+            max-height: 600px;
+            object-fit: contain;
+        }
+        
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+        
+        .carousel-arrow {
+            background: rgba(255,255,255,0.7);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            margin: 0 15px;
+            transition: all 0.3s;
+            color: #ff4c8b;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .carousel-arrow:hover {
+            background: white;
+            transform: scale(1.1);
+        }
+        
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+        }
+        
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ccc;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .dot.active {
+            background: #ff4c8b;
+        }
+        
+        /* CODE 4: DIVOOM Branding */
+        .DIVOOM-branding {
+            text-align: center;
+            padding: 80px 20px;
+            background-color: #ffffff;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .DIVOOM-logo {
+            font-size: 4.5rem;
+            font-weight: 600;
+            color: #000000;
+            line-height: 1;
+            margin: 0;
+            text-transform: uppercase;
+        }
+        
+        /* CODE 5: Color Selection Section with Image */
+        .color-selection-section {
+            background: #f8f9fa;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        
+        .color-content {
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        
+        .color-display-image {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* CODE 6: FAQ Section */
+        .faq-section {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+        
+        .faq-main-title {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: 600;
+        }
+        
+        .faq-container {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            background: white;
+        }
+        
+        .faq-question {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .faq-question:hover {
+            background: #f9f9f9;
+        }
+        
+        .faq-question h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #2c3e50;
+            flex: 1;
+        }
+        
+        .faq-toggle {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-left: 20px;
+            transition: transform 0.3s;
+            color: #ff4c8b;
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            padding: 0 20px;
+            background: #f9f9f9;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding: 20px;
+        }
+        
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+        
+        /* CODE 7: Contact Section */
+        .contact-section {
+            background: #f5f7fa;
+            padding: 80px 20px;
+        }
+        
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        
+        .contact-title {
+            font-size: 2.2rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .contact-subtitle {
+            color: #7f8c8d;
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .form-group {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        label {
+            font-weight: 500;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+        
+        input, textarea {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #ff4c8b;
+            box-shadow: 0 0 0 3px rgba(255,76,139,0.1);
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .submit-btn {
+            background: #ff4c8b;
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+        
+        .submit-btn:hover {
+            background: #e6376d;
+            transform: translateY(-2px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding: 30px 20px;
+            color: #999;
+            font-size: 14px;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-top: 1px solid #eee;
+        }
+        
+        /* Confetti container */
+        #confetti-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+        }
+        
+        /* Cart Popup */
+        .cart-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            width: 90%;
+            max-width: 500px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            padding: 30px;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+        
+        .cart-popup.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .cart-header h2 {
+            font-size: 24px;
+            color: #333;
+            font-weight: 600;
+        }
+        
+        .close-cart {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #777;
+            transition: color 0.3s;
+        }
+        
+        .close-cart:hover {
+            color: #ff4c8b;
+        }
+        
+        .cart-items {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-bottom: 25px;
+        }
+        
+        .cart-empty {
+            text-align: center;
+            padding: 30px;
+            color: #777;
+        }
+        
+        .cart-empty i {
+            font-size: 48px;
+            color: #ddd;
+            margin-bottom: 15px;
+        }
+        
+        .cart-empty p {
+            margin-bottom: 20px;
+        }
+        
+        .cart-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .cart-item-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+        
+        .cart-item-details {
+            flex: 1;
+        }
+        
+        .cart-item-title {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        
+        .cart-item-info {
+            color: #777;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        .cart-item-price {
+            color: #ff4c8b;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .cart-item-quantity button {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #f5f5f5;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .cart-item-quantity button:hover {
+            background: #ff4c8b;
+            color: white;
+        }
+        
+        .cart-summary {
+            padding: 20px 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 20px;
+        }
+        
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+        
+        .summary-total {
+            font-weight: 600;
+            font-size: 18px;
+            color: #ff4c8b;
+        }
+        
+        .checkout-btn {
+            width: 100%;
+            padding: 16px;
+            background: #ff4c8b;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+        
+        .checkout-btn:hover {
+            background: #e6376d;
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1500;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+        
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                gap: 15px;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .delivery-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .cart-popup {
+                width: 95%;
+            }
+            
+            .DIVOOM-logo {
+                font-size: 3rem;
+            }
+            
+            .product-title {
+                font-size: 2rem;
+            }
+            
+            .product-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 25px;
+            }
+            
+            .contact-container {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Confetti Canvas -->
+    <canvas id="confetti-canvas"></canvas>
+    
+    <!-- Cart Popup -->
+    <div class="cart-popup" id="cartPopup">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <button class="close-cart" id="closeCart">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be added here dynamically -->
+        </div>
+        <div class="cart-summary" id="cartSummary">
+            <!-- Cart summary will be added here dynamically -->
+        </div>
+        <button class="checkout-btn" id="checkoutBtn">Proceed to Checkout</button>
+    </div>
+    
+    <!-- Overlay for cart popup -->
+    <div class="overlay" id="overlay"></div>
+    
+    <!-- Top Banner -->
+    <div class="top-banner">
+        <strong>67 units sold in 3 days</strong> only 33 remaining!
+    </div>
+    
+    <!-- Header -->
+    <header>
+        <a href="#" class="logo">DIVOOM</a>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#" id="supportLink">Support</a></li>
+            </ul>
+        </nav>
+        <div class="icons">
+            <i class="fas fa-search"></i>
+            <i class="fas fa-user"></i>
+            <i class="fas fa-shopping-cart" id="cartIcon">
+                <span class="cart-count" id="cartCount">0</span>
+            </i>
+        </div>
+    </header>
+    
+    <!-- Product Section -->
+    <div class="container">
+        <!-- Product Images -->
+        <div class="product-images">
+            <img id="mainImage" class="main-image" src="https://cdn.durable.co/blocks/2ftXvBEt6v3dezpCHmXZjVUZeM24xcJSKCbFnSMu9De1FryRgDVFQxSadRy9TinI.jpg" alt="Divoom Ditoo Pro">
+            <div class="carousel" id="carousel">
+                <img src="https://cdn.durable.co/blocks/2ftXvBEt6v3dezpCHmXZjVUZeM24xcJSKCbFnSMu9De1FryRgDVFQxSadRy9TinI.jpg" alt="Pink" class="active">
+                <img src="https://cdn.durable.co/blocks/1byfYfW2YytcPc1fyZpQCJOHv8DlrlWEUE6TC7QW76Ig7YysLKspFFofxsqaom0k.jpg" alt="Red">
+                <img src="https://cdn.durable.co/blocks/20cpmxEyiNgRSir2P3amCSaXdcWuR3QyAS6rkcON9eLCsEDM3fydtbsnEDD8nsi7.jpg" alt="Blue">
+                <img src="https://cdn.durable.co/blocks/25BlULuWJHIIgwGdVVqONTvZfvcgz5uDZCU1XEikWFfRpZigvowxSoHd521xVw8d.jpg" alt="White">
+                <img src="https://cdn.durable.co/blocks/26zkLqJFTcVG7YClDWFSZYuiyUkZICbj5O9HJJdBqzfQbBx2ST10WQo00rPJCOxq.jpg" alt="Black">
+                <img src="https://cdn.durable.co/blocks/91dVswYK5pwyv8wbjCDFN10CzG9XTIAQGw9PJ08UCiQXueoKR6pOFd9w9ZB7Rjof.jpg" alt="Green">
+            </div>
+            
+            <div class="delivery-info">
+                <span><i class="fas fa-truck"></i> 3–7 days delivery</span>
+                <span><i class="fas fa-sync-alt"></i> Easy return & refund</span>
+                <span><i class="fas fa-box"></i> Free shipping</span>
+            </div>
+        </div>
+        
+        <!-- Product Details -->
+        <div class="product-details">
+            <h1 class="product-title">Divoom Ditoo Pro</h1>
+            <p class="product-description">
+                Fun gadget to kill boredom: Create pixel art with your fingertips or explore 1,000+ designs in the free Divoom community. Chat, comment, and connect with creators. Cute Bluetooth speaker with DIY equalizer: 10W DSP-tuned audio; your pixel art dances to the beat—perfect for kawaii desks and gaming setups.
+            </p>
+            
+            <div class="product-price">
+                <div class="current-price">₹12,500</div>
+                <div class="original-price">₹15,000</div>
+            </div>
+            
+            <div class="stock-info">
+                <i class="fas fa-fire"></i>
+                <div class="stock-text">
+                    <del>100</del> Only 33 units remaining!
+                </div>
+            </div>
+            
+            <div class="color-options">
+                <h3 class="section-title">Select Color</h3>
+                <div class="colors" id="colorOptions">
+                    <div class="color-option active" style="background-color: #ffb6c1;" data-color="Pink" data-img="https://cdn.durable.co/blocks/2ftXvBEt6v3dezpCHmXZjVUZeM24xcJSKCbFnSMu9De1FryRgDVFQxSadRy9TinI.jpg"></div>
+                    <div class="color-option" style="background-color: #ff4c4c;" data-color="Red" data-img="https://cdn.durable.co/blocks/1byfYfW2YytcPc1fyZpQCJOHv8DlrlWEUE6TC7QW76Ig7YysLKspFFofxsqaom0k.jpg"></div>
+                    <div class="color-option" style="background-color: #4c8bff;" data-color="Blue" data-img="https://cdn.durable.co/blocks/20cpmxEyiNgRSir2P3amCSaXdcWuR3QyAS6rkcON9eLCsEDM3fydtbsnEDD8nsi7.jpg"></div>
+                    <div class="color-option" style="background-color: #ffffff; border: 1px solid #eee;" data-color="White" data-img="https://cdn.durable.co/blocks/25BlULuWJHIIgwGdVVqONTvZfvcgz5uDZCU1XEikWFfRpZigvowxSoHd521xVw8d.jpg"></div>
+                    <div class="color-option" style="background-color: #333333;" data-color="Black" data-img="https://cdn.durable.co/blocks/26zkLqJFTcVG7YClDWFSZYuiyUkZICbj5O9HJJdBqzfQbBx2ST10WQo00rPJCOxq.jpg"></div>
+                </div>
+            </div>
+            
+            <div class="quantity-section">
+                <h3 class="section-title">Quantity</h3>
+                <div class="quantity-selector">
+                    <button class="quantity-btn minus">-</button>
+                    <input type="number" class="quantity-input" value="1" min="1" max="33">
+                    <button class="quantity-btn plus">+</button>
+                </div>
+            </div>
+            
+            <div class="payment-options">
+                <h3 class="section-title">Payment Method</h3>
+                <div class="payment-method selected" id="prepaid-method">
+                    <input type="radio" id="prepaid" name="payment" value="prepaid" checked>
+                    <label for="prepaid">UPI/Prepaid Payment</label>
+                </div>
+                <div class="price-breakdown" id="prepaid-breakdown">
+                    <div class="product-details-breakdown">
+                        <span>Product:</span>
+                        <span>Divoom Ditoo Pro (Pink)</span>
+                    </div>
+                    <div class="product-details-breakdown">
+                        <span>Quantity:</span>
+                        <span>1</span>
+                    </div>
+                    <div>
+                        <span>Selling Price:</span>
+                        <span>₹12,500</span>
+                    </div>
+                    <div>
+                        <span>Shipping:</span>
+                        <span>₹0</span>
+                    </div>
+                    <div>
+                        <span>Booking Fee:</span>
+                        <span>₹0</span>
+                    </div>
+                    <div>
+                        <span>Discount:</span>
+                        <span id="prepaid-discount">₹0</span>
+                    </div>
+                    <div>
+                        <span>Total Payable:</span>
+                        <span id="prepaid-total">₹12,500</span>
+                    </div>
+                </div>
+                
+                <div class="payment-method" id="cod-method">
+                    <input type="radio" id="cod" name="payment" value="cod">
+                    <label for="cod">Cash on Delivery (COD)</label>
+                </div>
+                <div class="price-breakdown" id="cod-breakdown">
+                    <div class="product-details-breakdown">
+                        <span>Product:</span>
+                        <span>Divoom Ditoo Pro (Pink)</span>
+                    </div>
+                    <div class="product-details-breakdown">
+                        <span>Quantity:</span>
+                        <span>1</span>
+                    </div>
+                    <div>
+                        <span>Selling Price:</span>
+                        <span>₹12,500</span>
+                    </div>
+                    <div>
+                        <span>Shipping:</span>
+                        <span>₹0</span>
+                    </div>
+                    <div>
+                        <span>Booking Fee:</span>
+                        <span>₹500</span>
+                    </div>
+                    <div>
+                        <span>Discount:</span>
+                        <span id="cod-discount">₹0</span>
+                    </div>
+                    <div>
+                        <span>Total Payable:</span>
+                        <span id="cod-total">₹13,000</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="coupon-section">
+                <h3 class="section-title">Apply Coupon</h3>
+                <div class="coupon-container">
+                    <input type="text" class="coupon-input" id="coupon-input" placeholder="Enter coupon code">
+                    <button class="apply-btn" id="apply-coupon">Apply</button>
+                </div>
+                <div class="coupon-notice" id="coupon-notice">
+                    Coupon applied successfully! ₹300 discount added to your order.
+                </div>
+            </div>
+            
+            <div class="action-buttons">
+                <button class="cart-btn" id="addToCartBtn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                <button class="buy-btn" id="buyNowBtn">Buy Now</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- CODE 2: Features Carousel with Images -->
+    <div class="features-carousel">
+        <div class="carousel-container">
+            <!-- Slide 1 -->
+            <div class="carousel-slide">
+                <img src="https://cdn.durable.co/blocks/3b8ZY7E7g3jR2wzNzZL8CtbXrcsVaJiJbTT3ULktx5kSSepmmjEyDWrUxlhoekMY.png" alt="Ditoo Pro Design" class="carousel-image">
+            </div>
+            
+            <!-- Slide 2 -->
+            <div class="carousel-slide">
+                <img src="https://cdn.durable.co/blocks/6EpvvsKHoRuuItwzdtcKdBJ2N4AqaCAZc1QceQ5G5AkcgMUgjJg2Bq0PyeLT8skn.png" alt="RGB Lighting" class="carousel-image">
+            </div>
+            
+            <!-- Slide 3 -->
+            <div class="carousel-slide">
+                <img src="https://cdn.durable.co/blocks/fCK8DqNZkMBSgBFegNhCH46BJyGSf5pxxb3OuIu43feB2Y1En8ElhhYT7v21HLz8.png" alt="Sound Quality" class="carousel-image">
+            </div>
+            
+            <!-- Slide 4 -->
+            <div class="carousel-slide">
+                <img src="https://cdn.durable.co/blocks/16KcAXOZjbo5xW7MTnT8SSyMcpSUO4krXQjbKIEFM0H76wNcqV5j3xFc6z548Np0.png" alt="Vintage Design" class="carousel-image">
+            </div>
+            
+            <!-- Slide 5 -->
+            <div class="carousel-slide">
+                <img src="https://cdn.durable.co/blocks/1dYBVQDq5uwV9bFgf03iOPvBLzOrUtSSnjACWJXeqRHanRuxRkWegLvLEC2tv6F0.png" alt="Build Quality" class="carousel-image">
+            </div>
+        </div>
+        
+        <div class="carousel-nav">
+            <button class="carousel-arrow prev">❮</button>
+            <button class="carousel-arrow next">❯</button>
+        </div>
+        
+        <div class="carousel-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </div>
+    
+    <!-- CODE 3: Usage Scenarios Carousel with Images -->
+    <div class="features-carousel" id="usage-carousel">
+        <div class="carousel-container">
+            <!-- Slide 1 -->
+            <div class="carousel-slide">
+                <img src="https://cdn.durable.co/blocks/33T66nQ1cBnwMzjhrjyOVG4cxxg1IVS98zTucdJJ7CDSC1wHiu2J3uaHmh7Bbe0s.png" alt="Pixel Art Creation" class="carousel-image">
+            </div>
+            
+            <!-- Slide 2 -->
+            <div class="carousel-slide">
+                <img src="https://cdn.durable.co/blocks/37J4u5oIdLggl8tlF5XNq7kSuZ9xqMqSFtuvwkiVMZpF0JIA8n4lcNpFICVOIq2t.png" alt="Audio Quality" class="carousel-image">
+            </div>
+            
+            <!-- Slide 3 -->
+            <div class="carousel-slide">
+                <img src="https://cdn.durable.co/blocks/3bwOYJGx8zKlFJK5m33gLkDV5zjSBKBvwuAvP5retIqdnxTqOB6L6OixWYX2oRo7.png" alt="Control Panel" class="carousel-image">
+            </div>
+            
+            <!-- Slide 4 -->
+            <div class="carousel-slide">
+                <img src="https://cdn.durable.co/blocks/462fLnkqOJMbOHkklLrIRMvTcOYRsZBHUTlfbiEBzc2rD8HesYm4Ayl3OmAw2hEe.png" alt="Multi-functional Display" class="carousel-image">
+            </div>
+            
+            <!-- Slide 5 -->
+            <div class="carousel-slide">
+                <img src="https://cdn.durable.co/blocks/9XqOG9kxLyhWdrrwHb4IzYVmCr9zfYwNSfIrwkNcVjZ5Thjto5ef51kMRCEign06.png" alt="Battery Life" class="carousel-image">
+            </div>
+        </div>
+        
+        <div class="carousel-nav">
+            <button class="carousel-arrow prev">❮</button>
+            <button class="carousel-arrow next">❯</button>
+        </div>
+        
+        <div class="carousel-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </div>
+    
+    <!-- CODE 4: DIVOOM Branding -->
+    <section class="DIVOOM-branding">
+        <h1 class="DIVOOM-logo">DIVOOM</h1>
+    </section>
+    
+    <!-- CODE 5: Color Selection Section with Image -->
+    <div class="color-selection-section">
+        <div class="color-content">
+            <img src="https://cdn.durable.co/blocks/2c2XwCTv5vMj7vT9FKg5hhpdofYNRzDHqH4G37iM90g9L9lUf5T0qyxdaBaha1UR.png" alt="Divoom Ditoo Pro Color Options" class="color-display-image">
+        </div>
+    </div>
+    
+    <!-- CODE 6: FAQ Section -->
+    <div class="faq-section">
+        <h2 class="faq-main-title">Explore Popular FAQs</h2>
+        
+        <div class="faq-container">
+            <!-- FAQ Item 1 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>What features does the Divoom Dittoo portable speaker offer?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>The Divoom Dittoo speaker offers Bluetooth connectivity, customizable LED display, Retro Games, FM radio, voice memo, and powerful sound quality for an enhanced music experience.</p>
+                </div>
+            </div>
+            
+            <!-- FAQ Item 2 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Is the Divoom Dittoo speaker available for purchase in India?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, the Divoom Dittoo portable speaker is available for purchase across India through online retail platforms and select electronic stores.</p>
+                </div>
+            </div>
+            
+            <!-- FAQ Item 3 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>How long does the battery of the Divoom Dittoo speaker last?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>The Divoom Dittoo portable speaker provides up to 8 hours of playtime on a full charge, depending on usage conditions.</p>
+                </div>
+            </div>
+            
+            <!-- FAQ Item 4 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Can I use the Divoom Dittoo speaker for hands-free calling?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, the Divoom Dittoo portable speaker supports hands-free calling with its built-in microphone, allowing you to take calls directly through the device.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<!-- CODE 7: Order Form Section (FINAL) -->
+<div class="contact-section">
+  <div class="contact-container">
+    <h2 class="contact-title">Place Your Order</h2>
+    <p class="contact-subtitle">Order your Divoom Ditoo Pro from SoundPixel India.</p>
+
+    <!-- Do NOT change class="contact-form" (JS uses it to reset the form) -->
+    <form class="contact-form" onsubmit="event.preventDefault();">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="custName">Full Name</label>
+          <input type="text" id="custName" name="custName" required>
+        </div>
+        <div class="form-group">
+          <label for="custPhone">Mobile</label>
+          <input type="tel" id="custPhone" name="custPhone" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="custEmail">Email</label>
+          <input type="email" id="custEmail" name="custEmail">
+        </div>
+        <div class="form-group">
+          <label for="custPin">PIN Code</label>
+          <input type="text" id="custPin" name="custPin" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="custAddress">Address</label>
+        <textarea id="custAddress" name="custAddress" rows="2" required></textarea>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="productColor">Choose Color</label>
+          <select id="productColor" name="productColor" required>
+            <option value="Pink">Pink</option>
+            <option value="Green">Green</option>
+            <option value="White">White</option>
+            <option value="Blue">Blue</option>
+            <option value="Red">Red</option>
+            <option value="Black">Black</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="productQty">Quantity</label>
+          <input type="number" id="productQty" name="productQty" min="1" value="1" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Payment Method</label><br>
+          <label><input type="radio" name="payment" value="Prepaid" checked> Prepaid (₹10,000)</label>
+          <br>
+          <label><input type="radio" name="payment" value="COD"> Cash on Delivery (₹500 booking + ₹10,000)</label>
+        </div>
+        <div class="form-group">
+          <label for="couponCode">Coupon Code (optional)</label>
+          <input type="text" id="couponCode" name="couponCode" placeholder="Enter code">
+          <!-- Reminder: You asked not to hint “JAZ” anywhere on page -->
+        </div>
+      </div>
+
+      <button type="submit" id="buyNowBtn" class="submit-btn">Buy Now</button>
+    </form>
+  </div>
+</div>
+  
+  
+    <!-- Footer -->
+    <div class="footer-bottom">
+        <p>&copy; 2023 Divoom. All rights reserved. | Designed with ❤️ for pixel art enthusiasts</p>
+    </div>
+    
+    <script>
+        // Constants
+        const BASE_PRICE = 12500;
+        const COD_FEE = 500;
+        const DISCOUNT_AMOUNT = 300;
+        const COUPON_CODE = "YOUR_SECRET_CODE";
+        const WHATSAPP_NUMBER = "1234567890";
+        
+        // DOM Elements
+        const mainImage = document.getElementById('mainImage');
+        const carousel = document.getElementById('carousel').getElementsByTagName('img');
+        const colorOptions = document.getElementById('colorOptions').getElementsByClassName('color-option');
+        const minusBtn = document.querySelector('.quantity-btn.minus');
+        const plusBtn = document.querySelector('.quantity-btn.plus');
+        const quantityInput = document.querySelector('.quantity-input');
+        const prepaidMethod = document.getElementById('prepaid-method');
+        const codMethod = document.getElementById('cod-method');
+        const prepaidBreakdown = document.getElementById('prepaid-breakdown');
+        const codBreakdown = document.getElementById('cod-breakdown');
+        const applyCouponBtn = document.getElementById('apply-coupon');
+        const couponInput = document.getElementById('coupon-input');
+        const couponNotice = document.getElementById('coupon-notice');
+        const cartIcon = document.getElementById('cartIcon');
+        const cartCount = document.getElementById('cartCount');
+        const cartPopup = document.getElementById('cartPopup');
+        const closeCart = document.getElementById('closeCart');
+        const cartItems = document.getElementById('cartItems');
+        const cartSummary = document.getElementById('cartSummary');
+        const checkoutBtn = document.getElementById('checkoutBtn');
+        const overlay = document.getElementById('overlay');
+        const addToCartBtn = document.getElementById('addToCartBtn');
+        const buyNowBtn = document.getElementById('buyNowBtn');
+        const supportLink = document.getElementById('supportLink');
+        
+        // Confetti canvas setup
+        const canvas = document.getElementById('confetti-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        // Confetti particles array
+        let confettiParticles = [];
+        
+        // Cart items array
+        let cart = [];
+        
+        // State variables
+        let couponApplied = false;
+        let currentQuantity = 1;
+        let currentColor = "Pink";
+        let currentImage = "https://cdn.durable.co/blocks/2ftXvBEt6v3dezpCHmXZjVUZeM24xcJSKCbFnSMu9De1FryRgDVFQxSadRy9TinI.jpg";
+        
+        // Initialize the page
+        function initPage() {
+            // Set initial stock to 33
+            document.querySelector('.stock-text del').nextSibling.textContent = "Only 33 units remaining!";
+            
+            // Show price breakdown for prepaid by default
+            prepaidBreakdown.style.display = 'block';
+            codBreakdown.style.display = 'none';
+            
+            // Calculate initial prices
+            updatePrices();
+            
+            // Setup event listeners
+            setupEventListeners();
+            
+            // Setup WhatsApp support
+            supportLink.href = `https://wa.me/${WHATSAPP_NUMBER}?text=Hello%20Divoom%20Support,%20I%20need%20assistance%20with%20my%20order`;
+            
+            // Initialize carousels
+            initCarousels();
+            
+            // Initialize FAQ functionality
+            initFAQs();
+            
+            // Initialize contact form
+            initContactForm();
+        }
+        
+        // Initialize carousels
+        function initCarousels() {
+            // Features Carousel
+            const featuresCarousel = document.querySelector('.features-carousel:not(#usage-carousel)');
+            if (featuresCarousel) {
+                initSingleCarousel(featuresCarousel);
+            }
+            
+            // Usage Carousel
+            const usageCarousel = document.getElementById('usage-carousel');
+            if (usageCarousel) {
+                initSingleCarousel(usageCarousel);
+            }
+        }
+        
+        // Initialize a single carousel
+        function initSingleCarousel(carouselElement) {
+            const container = carouselElement.querySelector('.carousel-container');
+            const slides = carouselElement.querySelectorAll('.carousel-slide');
+            const dots = carouselElement.querySelectorAll('.dot');
+            const prevBtn = carouselElement.querySelector('.prev');
+            const nextBtn = carouselElement.querySelector('.next');
+            
+            let currentIndex = 0;
+            let autoPlayInterval;
+            const slideInterval = 12000; // 12 seconds
+            
+            // Initialize carousel
+            function updateCarousel() {
+                container.style.transform = `translateX(-${currentIndex * 100}%)`;
+                
+                // Update dots
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                });
+            }
+            
+            // Auto-play function
+            function startAutoPlay() {
+                autoPlayInterval = setInterval(() => {
+                    currentIndex = (currentIndex + 1) % slides.length;
+                    updateCarousel();
+                }, slideInterval);
+            }
+            
+            // Start auto-play
+            startAutoPlay();
+            
+            // Pause on hover
+            carouselElement.addEventListener('mouseenter', () => {
+                clearInterval(autoPlayInterval);
+            });
+            
+            carouselElement.addEventListener('mouseleave', startAutoPlay);
+            
+            // Navigation controls
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % slides.length;
+                updateCarousel();
+                resetAutoPlay();
+            });
+            
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                updateCarousel();
+                resetAutoPlay();
+            });
+            
+            // Dot navigation
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentIndex = index;
+                    updateCarousel();
+                    resetAutoPlay();
+                });
+            });
+            
+            // Reset autoplay timer after user interaction
+            function resetAutoPlay() {
+                clearInterval(autoPlayInterval);
+                startAutoPlay();
+            }
+        }
+        
+        // Initialize FAQ functionality
+        function initFAQs() {
+            document.querySelectorAll('.faq-question').forEach(question => {
+                question.addEventListener('click', () => {
+                    const faqItem = question.parentElement;
+                    faqItem.classList.toggle('active');
+                    
+                    // Close other open FAQs
+                    document.querySelectorAll('.faq-item').forEach(item => {
+                        if (item !== faqItem && item.classList.contains('active')) {
+                            item.classList.remove('active');
+                        }
+                    });
+                });
+            });
+        }
+        
+        // Initialize contact form
+        function initContactForm() {
+            document.querySelector('.contact-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form values
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+                
+                // Here you would typically send the data to a server
+                console.log('Form submitted:', { name, email, message });
+                
+                // Show success message
+                alert('Thank you for your message! We will contact you soon.');
+                this.reset();
+            });
+        }
+        
+        // Setup all event listeners
+        function setupEventListeners() {
+            // Image carousel functionality
+            for (let img of carousel) {
+                img.addEventListener('click', function() {
+                    for (let i of carousel) i.classList.remove('active');
+                    this.classList.add('active');
+                    mainImage.src = this.src;
+                });
+            }
+            
+            // Color option click
+            for (let color of colorOptions) {
+                color.addEventListener('click', function() {
+                    for (let c of colorOptions) c.classList.remove('active');
+                    this.classList.add('active');
+                    mainImage.src = this.getAttribute('data-img');
+                    currentColor = this.getAttribute('data-color');
+                    currentImage = this.getAttribute('data-img');
+                    updatePriceBreakdownDetails();
+                });
+            }
+            
+            // Quantity selector
+            minusBtn.addEventListener('click', () => {
+                let current = parseInt(quantityInput.value);
+                if (current > 1) {
+                    quantityInput.value = current - 1;
+                    currentQuantity = current - 1;
+                    updatePrices();
+                    updatePriceBreakdownDetails();
+                }
+            });
+            
+            plusBtn.addEventListener('click', () => {
+                let current = parseInt(quantityInput.value);
+                const max = parseInt(quantityInput.max);
+                if (current < max) {
+                    quantityInput.value = current + 1;
+                    currentQuantity = current + 1;
+                    updatePrices();
+                    updatePriceBreakdownDetails();
+                }
+            });
+            
+            // Quantity input change
+            quantityInput.addEventListener('change', function() {
+                let value = parseInt(this.value);
+                if (isNaN(value) || value < 1) value = 1;
+                if (value > 33) value = 33;
+                this.value = value;
+                currentQuantity = value;
+                updatePrices();
+                updatePriceBreakdownDetails();
+            });
+            
+            // Payment method selection
+            prepaidMethod.addEventListener('click', function() {
+                prepaidMethod.classList.add('selected');
+                codMethod.classList.remove('selected');
+                prepaidBreakdown.style.display = 'block';
+                codBreakdown.style.display = 'none';
+                updatePrices();
+            });
+            
+            codMethod.addEventListener('click', function() {
+                codMethod.classList.add('selected');
+                prepaidMethod.classList.remove('selected');
+                codBreakdown.style.display = 'block';
+                prepaidBreakdown.style.display = 'none';
+                updatePrices();
+            });
+            
+            // Apply coupon button
+            applyCouponBtn.addEventListener('click', function() {
+                const couponValue = couponInput.value.trim();
+                
+                if (couponValue.toLowerCase() === COUPON_CODE.toLowerCase()) {
+                    couponApplied = true;
+                    couponNotice.style.display = 'block';
+                    couponInput.value = '';
+                    updatePrices();
+                    triggerConfetti();
+                } else {
+                    couponApplied = false;
+                    couponNotice.style.display = 'none';
+                    alert('Invalid coupon code. Please enter "jaz" to apply discount.');
+                    updatePrices();
+                }
+            });
+            
+            // Cart icon click
+            cartIcon.addEventListener('click', openCartPopup);
+            
+            // Close cart popup
+            closeCart.addEventListener('click', closeCartPopup);
+            
+            // Overlay click to close cart
+            overlay.addEventListener('click', closeCartPopup);
+            
+            // Add to cart button
+            addToCartBtn.addEventListener('click', addToCart);
+            
+            // Buy now button
+            buyNowBtn.addEventListener('click', buyNow);
+            
+            // Checkout button
+            checkoutBtn.addEventListener('click', checkout);
+        }
+        
+        // Update price breakdown with product details
+        function updatePriceBreakdownDetails() {
+            // Update prepaid breakdown
+            const prepaidProductDetails = prepaidBreakdown.querySelectorAll('.product-details-breakdown');
+            if (prepaidProductDetails.length > 0) {
+                prepaidProductDetails[0].querySelector('span:last-child').textContent = `Divoom Ditoo Pro (${currentColor})`;
+                prepaidProductDetails[1].querySelector('span:last-child').textContent = currentQuantity;
+            }
+            
+            // Update COD breakdown
+            const codProductDetails = codBreakdown.querySelectorAll('.product-details-breakdown');
+            if (codProductDetails.length > 0) {
+                codProductDetails[0].querySelector('span:last-child').textContent = `Divoom Ditoo Pro (${currentColor})`;
+                codProductDetails[1].querySelector('span:last-child').textContent = currentQuantity;
+            }
+        }
+        
+        // Calculate and update all prices
+        function updatePrices() {
+            const quantity = parseInt(quantityInput.value);
+            const baseTotal = BASE_PRICE * quantity;
+            const codFeeTotal = COD_FEE * quantity;
+            const discountTotal = couponApplied ? DISCOUNT_AMOUNT * quantity : 0;
+            
+            if (prepaidMethod.classList.contains('selected')) {
+                // Prepaid breakdown
+                document.getElementById('prepaid-discount').textContent = discountTotal > 0 ? `-₹${discountTotal}` : '₹0';
+                const prepaidTotal = baseTotal - discountTotal;
+                document.getElementById('prepaid-total').textContent = `₹${prepaidTotal.toLocaleString()}`;
+                
+                // Update COD breakdown for consistency
+                document.getElementById('cod-discount').textContent = discountTotal > 0 ? `-₹${discountTotal}` : '₹0';
+                const codTotal = baseTotal + codFeeTotal - discountTotal;
+                document.getElementById('cod-total').textContent = `₹${codTotal.toLocaleString()}`;
+            } else {
+                // COD breakdown
+                document.getElementById('cod-discount').textContent = discountTotal > 0 ? `-₹${discountTotal}` : '₹0';
+                const codTotal = baseTotal + codFeeTotal - discountTotal;
+                document.getElementById('cod-total').textContent = `₹${codTotal.toLocaleString()}`;
+                
+                // Update prepaid breakdown for consistency
+                document.getElementById('prepaid-discount').textContent = discountTotal > 0 ? `-₹${discountTotal}` : '₹0';
+                const prepaidTotal = baseTotal - discountTotal;
+                document.getElementById('prepaid-total').textContent = `₹${prepaidTotal.toLocaleString()}`;
+            }
+        }
+        
+        // Create confetti particles
+        function createConfetti() {
+            const particleCount = 300;
+            const colors = ['#ff4c8b', '#ff6b9c', '#ff9ec0', '#ffc1d3', '#4c8bff', '#4CAF50', '#ffcc00'];
+            
+            for (let i = 0; i < particleCount; i++) {
+                confettiParticles.push({
+                    x: Math.random() * canvas.width,
+                    y: -20,
+                    radius: Math.random() * 10 + 5,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    velocityX: (Math.random() - 0.5) * 10,
+                    velocityY: Math.random() * 5 + 5,
+                    rotation: Math.random() * 360,
+                    rotationSpeed: (Math.random() - 0.5) * 10,
+                    shape: Math.random() > 0.5 ? 'circle' : 'square'
+                });
+            }
+        }
+        
+        // Animate confetti
+        function animateConfetti() {
+            requestAnimationFrame(animateConfetti);
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            for (let i = 0; i < confettiParticles.length; i++) {
+                const p = confettiParticles[i];
+                
+                p.y += p.velocityY;
+                p.x += p.velocityX;
+                p.rotation += p.rotationSpeed;
+                
+                // Add gravity
+                p.velocityY += 0.1;
+                
+                // Add wind effect
+                p.velocityX *= 0.99;
+                
+                ctx.save();
+                ctx.translate(p.x, p.y);
+                ctx.rotate(p.rotation * Math.PI / 180);
+                
+                ctx.fillStyle = p.color;
+                
+                if (p.shape === 'circle') {
+                    ctx.beginPath();
+                    ctx.arc(0, 0, p.radius, 0, Math.PI * 2);
+                    ctx.fill();
+                } else {
+                    ctx.fillRect(-p.radius, -p.radius, p.radius * 2, p.radius * 2);
+                }
+                
+                ctx.restore();
+                
+                // Remove particles that are out of view
+                if (p.y > canvas.height + 50) {
+                    confettiParticles.splice(i, 1);
+                    i--;
+                }
+            }
+            
+            // Stop animation when all particles are gone
+            if (confettiParticles.length === 0) {
+                canvas.style.display = 'none';
+            }
+        }
+        
+        // Trigger confetti animation
+        function triggerConfetti() {
+            canvas.style.display = 'block';
+            createConfetti();
+            animateConfetti();
+            
+            // Hide canvas after animation completes
+            setTimeout(() => {
+                canvas.style.display = 'none';
+            }, 5000);
+        }
+        
+        // Open cart popup
+        function openCartPopup() {
+            cartPopup.classList.add('active');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            updateCartPopup();
+        }
+        
+        // Close cart popup
+        function closeCartPopup() {
+            cartPopup.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Update cart popup content
+        function updateCartPopup() {
+            cartItems.innerHTML = '';
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = `
+                    <div class="cart-empty">
+                        <i class="fas fa-shopping-cart"></i>
+                        <p>Your cart is empty</p>
+                        <button class="cart-btn" onclick="closeCartPopup()">Continue Shopping</button>
+                    </div>
+                `;
+                cartSummary.style.display = 'none';
+                checkoutBtn.style.display = 'none';
+                return;
+            }
+            
+            cartSummary.style.display = 'block';
+            checkoutBtn.style.display = 'block';
+            
+            let subtotal = 0;
+            
+            cart.forEach((item, index) => {
+                const cartItem = document.createElement('div');
+                cartItem.className = 'cart-item';
+                
+                // Calculate item total
+                const itemTotal = item.price * item.quantity;
+                subtotal += itemTotal;
+                
+                cartItem.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+                    <div class="cart-item-details">
+                        <div class="cart-item-title">${item.name}</div>
+                        <div class="cart-item-info">Color: ${item.color}</div>
+                        <div class="cart-item-info">Quantity: ${item.quantity}</div>
+                        <div class="cart-item-price">₹${item.price.toLocaleString()} × ${item.quantity}</div>
+                        <div class="cart-item-quantity">
+                            <button onclick="changeQuantity(${index}, -1)">-</button>
+                            <span>${item.quantity}</span>
+                            <button onclick="changeQuantity(${index}, 1)">+</button>
+                            <button style="margin-left: 10px;" onclick="removeItem(${index})">Remove</button>
+                        </div>
+                    </div>
+                `;
+                
+                cartItems.appendChild(cartItem);
+            });
+            
+            cartSummary.innerHTML = `
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span>₹${subtotal.toLocaleString()}</span>
+                </div>
+                <div class="summary-row">
+                    <span>Shipping:</span>
+                    <span>FREE</span>
+                </div>
+                <div class="summary-row summary-total">
+                    <span>Total:</span>
+                    <span>₹${subtotal.toLocaleString()}</span>
+                </div>
+            `;
+        }
+        
+        // Add item to cart
+        function addToCart() {
+            const quantity = parseInt(quantityInput.value);
+            const isPrepaid = prepaidMethod.classList.contains('selected');
+            let pricePerItem = BASE_PRICE;
+            
+            if (isPrepaid) {
+                if (couponApplied) {
+                    pricePerItem = BASE_PRICE - DISCOUNT_AMOUNT;
+                }
+            } else {
+                pricePerItem = BASE_PRICE + COD_FEE;
+                if (couponApplied) {
+                    pricePerItem -= DISCOUNT_AMOUNT;
+                }
+            }
+            
+            const item = {
+                name: "Divoom Ditoo Pro",
+                color: currentColor,
+                image: currentImage,
+                price: pricePerItem,
+                quantity: quantity
+            };
+            
+            cart.push(item);
+            updateCartCount();
+            
+            // Show success message
+            alert(`${quantity} Divoom Ditoo Pro (${currentColor}) added to cart!`);
+            
+            // Open cart popup after adding
+            openCartPopup();
+        }
+        
+        // Buy now functionality
+        function buyNow() {
+            const quantity = parseInt(quantityInput.value);
+            const isPrepaid = prepaidMethod.classList.contains('selected');
+            let pricePerItem = BASE_PRICE;
+            
+            if (isPrepaid) {
+                if (couponApplied) {
+                    pricePerItem = BASE_PRICE - DISCOUNT_AMOUNT;
+                }
+            } else {
+                pricePerItem = BASE_PRICE + COD_FEE;
+                if (couponApplied) {
+                    pricePerItem -= DISCOUNT_AMOUNT;
+                }
+            }
+            
+            const total = pricePerItem * quantity;
+            
+            alert(`Proceeding to payment for ${quantity} Divoom Ditoo Pro (${currentColor})...\nTotal: ₹${total.toLocaleString()}`);
+            
+            // Redirect to payment page
+            setTimeout(() => {
+                window.location.href = "payment.html";
+            }, 1000);
+        }
+        
+        // Checkout functionality
+        function checkout() {
+            alert("Redirecting to checkout...");
+            
+            // Redirect to payment page
+            setTimeout(() => {
+                window.location.href = "payment.html";
+            }, 1000);
+        }
+        
+        // Update cart count badge
+        function updateCartCount() {
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCount.textContent = totalItems;
+        }
+        
+        // Change quantity in cart
+        function changeQuantity(index, change) {
+            const newQuantity = cart[index].quantity + change;
+            
+            if (newQuantity < 1) {
+                removeItem(index);
+                return;
+            }
+            
+            cart[index].quantity = newQuantity;
+            updateCartPopup();
+            updateCartCount();
+        }
+        
+        // Remove item from cart
+        function removeItem(index) {
+            cart.splice(index, 1);
+            updateCartPopup();
+            updateCartCount();
+        }
+        
+        // Initialize the page
+        initPage();
+        
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+        
+        // Expose functions to global scope for inline event handlers
+        window.changeQuantity = changeQuantity;
+        window.removeItem = removeItem;
+    </script>
+
+
+<script>
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzxENcM8poHIKtYdnv9he7RRmUoa_ERSDi3shOVA-KYqmkxLUNT0jS1OQD2BOzErQUv/exec";
+const API_KEY     = '30DEC2025SEPEHLE30LINR+PROFITKAMANEMEINHELPKARNABHAGWANJI';
+
+function calcTotals(paymentMethod, couponRaw) {
+  const subtotal = 10000; // base product price
+  const isCOD = paymentMethod === "COD";
+  const bookingFee = isCOD ? 500 : 0;
+  const code = (couponRaw || "").trim().toUpperCase();
+
+  // Your rule: JAZ → 2.5% on COD, 5% on Prepaid
+  let discount = 0;
+  if (code === "JAZ") {
+    discount = isCOD ? (subtotal * 0.025) : (subtotal * 0.05);
+  }
+
+  // Round discount to whole rupees
+  discount = Math.round(discount);
+
+  const payable = subtotal + bookingFee - discount;
+  return { subtotal, discount, bookingFee, payable };
+}
+
+document.getElementById("buyNowBtn").addEventListener("click", function () {
+  const name = document.getElementById("custName").value.trim();
+  const phone = document.getElementById("custPhone").value.trim();
+  const email = (document.getElementById("custEmail")||{}).value || "";
+  const address = document.getElementById("custAddress").value.trim();
+  const pin = document.getElementById("custPin").value.trim();
+  const color = document.getElementById("productColor").value;
+  const qty = parseInt(document.getElementById("productQty").value || "1", 10);
+  const paymentMethod = document.querySelector('input[name="payment"]:checked').value;
+  const coupon = (document.getElementById("couponCode")||{}).value || "";
+
+  // Basic front-end validation
+  if (!name || !phone || !address || !pin || !qty) {
+    alert("Please fill all required fields.");
+    return;
+  }
+
+  const totals = calcTotals(paymentMethod, coupon);
+
+  const order = {
+    apiKey: API_KEY,
+    name, phone, email, address, pin,
+    paymentMethod,
+    coupon: coupon.trim(),
+    items: [
+      { sku: "ditoo-pro", color, qty, unitPrice: 10000 }
+    ],
+    totals
+  };
+
+  fetch(https://script.google.com/macros/s/AKfycbzxENcM8poHIKtYdnv9he7RRmUoa_ERSDi3shOVA-KYqmkxLUNT0jS1OQD2BOzErQUv/exec {
+    method: "POST",
+    mode: "no-cors",                // keeps it simple; request is delivered even if response is opaque
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(order)
+  })
+  .then(() => {
+    alert("✅ Order submitted! You’ll get a confirmation shortly.");
+    document.querySelector(".contact-form").reset();
+  })
+  .catch(err => {
+    console.error(err);
+    alert("❌ Error submitting order. Please message us on WhatsApp.");
+  });
+});
+</script>
+
+</body>
+</html>
