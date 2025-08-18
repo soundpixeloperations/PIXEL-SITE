@@ -2046,7 +2046,7 @@
 
 <script>
 const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzxENcM8poHIKtYdnv9he7RRmUoa_ERSDi3shOVA-KYqmkxLUNT0jS1OQD2BOzErQUv/exec";
-const API_KEY     = '30DEC2025SEPEHLE30LINR+PROFITKAMANEMEINHELPKARNABHAGWANJI';
+const API_KEY     = '30DEC2025SEPEHLE30LINR+PROFITKAMANEMEINHELPKARNABHAGWAN';
 
 function calcTotals(paymentMethod, couponRaw) {
   const subtotal = 10000; // base product price
@@ -2087,34 +2087,99 @@ document.getElementById("buyNowBtn").addEventListener("click", function () {
   const totals = calcTotals(paymentMethod, coupon);
 
   const order = {
-    apiKey: '30DEC2025SEPEHLE30LINR+PROFITKAMANEMEINHELPKARNABHAGWANJI',
+    apiKey: '30DEC2025SEPEHLE30LINR+PROFITKAMANEMEINHELPKARNABHAGWAN',
     name, phone, email, address, pin,
     paymentMethod,
     coupon: coupon.trim(),
     items: [
-      { sku: "ditoo-pro", color, qty, unitPrice: 10000 }
+      { sku: "ditoo-pro", color, qty, unitPrice: 12500 }
     ],
     totals
   };
 
   fetch("https://script.google.com/macros/s/AKfycbzxENcM8poHIKtYdnv9he7RRmUoa_ERSDi3shOVA-KYqmkxLUNT0jS1OQD2BOzErQUv/exec" , {
-    method: "POST",
-    mode: "no-cors",                // keeps it simple; request is delivered even if response is opaque
+    method: "POST",    
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(order)
   })
-  .then(() => {
-    alert("✅ Order submitted! You’ll get a confirmation shortly.");
-    document.querySelector(".contact-form").reset();
-  })
-  .catch(err => {
-    console.error(err);
-    alert("❌ Error submitting order. Please message us on WhatsApp.");
-  });
+    .then(res => res.json())
+.then(data => {
+  if (data.ok) {
+      showPopup("✅ Order submitted! Your Order ID is " + data.orderId);
+      document.querySelector(".contact-form").reset();
+  } else {
+      showPopup("❌ Error: " + data.error);
+  }
+})
+.catch(err => {
+  console.error(err);
+  showPopup("❌ Error submitting order. Please message us on WhatsApp.");
 });
+function showPopup(message) {
+  document.getElementById("popupMsg").innerText = message;
+  document.getElementById("orderPopup").style.display = "flex";
+}
+
+function closePopup() {
+  document.getElementById("orderPopup").style.display = "none";
+}
+
 </script>
+
+<!-- Confirmation Popup -->
+<div id="orderPopup" class="popup-overlay" style="display:none;">
+  <div class="popup-box">
+    <h2>✅ Order Confirmed</h2>
+    <p id="popupMsg">Your order has been placed successfully.</p>
+    <button onclick="closePopup()">OK</button>
+  </div>
+</div>
+
+<style>
+  .popup-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  .popup-box {
+    background: #fff;
+    padding: 20px 30px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 320px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  }
+  .popup-box h2 {
+    margin-top: 0;
+    color: green;
+  }
+  .popup-box button {
+    margin-top: 15px;
+    padding: 8px 16px;
+    border: none;
+    background: #333;
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+</style>
+
+
+<div id="orderPopup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%;
+  background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:9999;">
+  <div style="background:white; padding:20px; border-radius:10px; max-width:350px; text-align:center;">
+    <p id="popupMsg"></p>
+    <button onclick="closePopup()" style="margin-top:15px; padding:10px 20px; border:none; background:#4CAF50; color:white; border-radius:5px; cursor:pointer;">OK</button>
+  </div>
+</div>
 
 </body>
 
 </html>
+
 
